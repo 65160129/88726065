@@ -59,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    
     // แสดงรายการ Todo คร้ังแรก
     renderTodoList();
 });
