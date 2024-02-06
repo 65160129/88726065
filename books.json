@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Swordartonline",
+    "price": "555",
+    "author": [
+      "เรกิ คาวาฮาระ",
+      "คิริโตะ",
+      "อาสึนะdsad"
+
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Onepiece",
+    "price": "777",
+    "author": [
+      "เออิจิโร โอดะ",
+      "ลูฟี่",
+      "นามิ"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Bluelook",
+    "price": "666",
+    "author": [
+      "โนมูระ ยูสุเกะ",
+      "MUNEYUKI KANESHIRO",
+      "เท็ตสึอากิ วาตานาเบะ"
+
+    ]
+  }
+]
