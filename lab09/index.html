@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Show dog picture</title>
+</head>
+
+<body>
+    <div class="dog_header">
+        <center>
+            <h3>My Dog</h3>
+        </center>
+    </div>
+    <div class="main">
+        <button onclick="document.location='uploaddog.html'">ADD</button>
+        <hr>Resurt<br>
+    </div>
+    <div id="disp"></div>
+
+
+    <script>
+        const API_URL = `https://api.thedogapi.com/v1/`;
+        const API_KEY = "live_OQJsbhZ5RcFvSkCFqH2RqtG2JI3HFGSgzJEqdp3KjSA1CmJ6LgKRGuMMNQAI9AtA"
+
+        function getMyUpload() {
+            fetch(`${API_URL}images/?limit=10&page=0&order=DESC`, {
+                method: "GET",
+                headers: {
+                    "x-api-key": API_KEY,
+                },
+            })
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log(data);
+                    let disp = document.getElementById("disp");
+                    data.forEach((element) => {
+                        disp.innerHTML += `<img src="${element.url}" width="22%" title="${element.id}"/>`;
+                        // link for delete image by id
+                        disp.innerHTML += `<a href="#" onclick="deleteImage('${element.id}')"><img src="images/dog.png"></a>`;
+                    });
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
+        getMyUpload();
+
+        function deleteImage(pid) {
+            fetch(`${API_URL}images/${pid}`, {
+                method: "DELETE",
+                headers: {
+                    "x-api-key": API_KEY,
+                },
+            })
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log(data);
+                    alert("Image deleted successfully");
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
+        getMyUpload();
+    </script>
+</body>
+
+</html>
